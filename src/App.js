@@ -55,7 +55,6 @@ function App() {
     setBreweryCardsHtml(breweryData?.map(brewery => <BreweryCard showDetailPage={showDetailPage} key={brewery.id} brewery={brewery} />));
   }, [breweryData]);
 
-  console.log(breweryCardsHtml);
   return (
     <>
       <div className='header'>
@@ -73,7 +72,7 @@ function App() {
         handleFilter={handleFilter}
       />
       <ul className="brewery-cards">
-        { !isLoading ? breweryCardsHtml.length !== 0 ? breweryCardsHtml : <h2>No Brewery Found!</h2> : <Loading />}
+        { !isLoading ? breweryCardsHtml?.length !== 0 ? breweryCardsHtml : <h2>No Brewery Found!</h2> : <Loading />}
       </ul>
       {detailPageVisible && <DetailPage pageVisible={detailPageVisible} setPageVisible={setDetailPageVisible} brewery={detailPageData}  />}
     </>
